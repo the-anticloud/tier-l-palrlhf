@@ -1,0 +1,18 @@
+{
+  "name": "L_PALRLHF",
+  "slug": "huggingface/trl",
+  "url": "https://github.com/huggingface/trl",
+  "tier": 5,
+  "domain": "rl",
+  "role": "SFT, DPO, GRPO, PPO trainer",
+  "commit": "48f7f0f0a3dc09deb6b8725e1573c793628b37d4",
+  "commit_date": "2026-09-30T07:34:46+02:00",
+  "licence": "Apache-2.0",
+  "licence_file": "LICENSE",
+  "licence_class": "permissive",
+  "vendored_at": "2026-09-30T05:45:43.257917+00:00",
+  "depth": 1,
+  "size_mb": 8.8,
+  "ok": true,
+  "error": ""
+}

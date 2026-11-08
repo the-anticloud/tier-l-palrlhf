@@ -1,0 +1,81 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:b17e512f-e573-594f-bbfa-f61b6aff8ff6",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-13T20:33:37Z",
+    "component": {
+      "type": "application",
+      "name": "L_PALRLHF",
+      "version": "unknown",
+      "bom-ref": "pkg:generic/anticloud/L_PALRLHF@unknown",
+      "purl": "pkg:generic/anticloud/L_PALRLHF@unknown",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": ""
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": ""
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "accelerate",
+      "version": ">=1.4.0",
+      "purl": "pkg:pypi/accelerate@1.4.0",
+      "bom-ref": "pypi/accelerate@>=1.4.0"
+    },
+    {
+      "type": "library",
+      "name": "datasets",
+      "version": ">=4.7.0",
+      "purl": "pkg:pypi/datasets@4.7.0",
+      "bom-ref": "pypi/datasets@>=4.7.0"
+    },
+    {
+      "type": "library",
+      "name": "use_json",
+      "version": "unspecified",
+      "purl": "pkg:pypi/use_json",
+      "bom-ref": "pypi/use_json@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "jinja2",
+      "version": "unspecified",
+      "purl": "pkg:pypi/jinja2",
+      "bom-ref": "pypi/jinja2@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "packaging",
+      "version": ">20.0",
+      "purl": "pkg:pypi/packaging@20.0",
+      "bom-ref": "pypi/packaging@>20.0"
+    },
+    {
+      "type": "library",
+      "name": "transformers",
+      "version": ">=4.56.2",
+      "purl": "pkg:pypi/transformers@4.56.2",
+      "bom-ref": "pypi/transformers@>=4.56.2"
+    }
+  ]
+}

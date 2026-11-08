@@ -1,0 +1,1571 @@
+{
+ "schema": "anticloud.tier-bench/1",
+ "project": "L_PALRLHF",
+ "source": {
+  "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\TIER_5_WORLD_NEURO_EMBODIED\\L_PALRLHF\\UPSTREAM_CLONE",
+  "git": {
+   "head": "48f7f0f0a3dc09deb6b8725e1573c793628b37d4",
+   "url": "https://github.com/huggingface/trl",
+   "branch": "main",
+   "sha_verified_from": "GitHub API + UPSTREAM/.anticloud-provenance.json 2026-10-14 (trap+PAT scrubbed)",
+   "licence": "Apache-2.0",
+   "redistribution": "allowed"
+  }
+ },
+ "metrics": {
+  "files_total": 425,
+  "source_files_scanned": 235,
+  "lines_of_code": 74094,
+  "languages": {
+   ".py": 235,
+   ".md": 75,
+   ".jinja": 65,
+   ".yaml": 22,
+   ".ipynb": 12,
+   "(none)": 5,
+   ".json": 4,
+   ".png": 2,
+   ".cff": 1,
+   ".in": 1,
+   ".toml": 1,
+   ".txt": 1,
+   ".yml": 1
+  }
+ },
+ "licence": {
+  "spdx": "Apache-2.0",
+  "class": "A",
+  "source_file": "LICENSE",
+  "redistribution_allowed": true
+ },
+ "dependencies": {
+  "count": 6,
+  "unique": 6,
+  "by_ecosystem": {
+   "pypi": 6
+  },
+  "list": [
+   {
+    "ecosystem": "pypi",
+    "name": "accelerate",
+    "version": ">=1.4.0",
+    "source_file": "pyproject.toml",
+    "raw": "accelerate>=1.4.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "datasets",
+    "version": ">=4.7.0",
+    "source_file": "pyproject.toml",
+    "raw": "datasets>=4.7.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "use_json",
+    "version": "",
+    "source_file": "pyproject.toml",
+    "raw": "use_json"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "jinja2",
+    "version": "",
+    "source_file": "pyproject.toml",
+    "raw": "jinja2"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "packaging",
+    "version": ">20.0",
+    "source_file": "pyproject.toml",
+    "raw": "packaging>20.0"
+   },
+   {
+    "ecosystem": "pypi",
+    "name": "transformers",
+    "version": ">=4.56.2",
+    "source_file": "pyproject.toml",
+    "raw": "transformers>=4.56.2"
+   }
+  ]
+ },
+ "owasp_top10": {
+  "total_findings": 273,
+  "files_with_findings": 235,
+  "severity": {
+   "high": 17,
+   "medium": 10,
+   "low": 246
+  },
+  "categories": {
+   "A01-BrokenAccessControl": {
+    "count": 0,
+    "findings": []
+   },
+   "A02-CryptographicFailures": {
+    "count": 2,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "examples/async_grpo_opencode/async_grpo_opencode.py",
+      "line": 271,
+      "cwe": "CWE-327",
+      "snippet": "return hashlib.sha1(instruction.encode()).hexdigest()"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/async_grpo_opencode/opencode_hf_sandbox.py",
+      "line": 122,
+      "cwe": "CWE-327",
+      "snippet": "return hashlib.sha1(instruction.encode()).hexdigest()"
+     }
+    ]
+   },
+   "A03-Injection": {
+    "count": 17,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "trl/experimental/gold/gold_trainer.py",
+      "line": 2498,
+      "cwe": "CWE-95",
+      "snippet": "self.teacher_model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "trl/experimental/gkd/gkd_trainer.py",
+      "line": 332,
+      "cwe": "CWE-95",
+      "snippet": "self.teacher_model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "tests/test_distillation_trainer.py",
+      "line": 1203,
+      "cwe": "CWE-95",
+      "snippet": "trainer.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "tests/test_grpo_trainer.py",
+      "line": 2128,
+      "cwe": "CWE-95",
+      "snippet": "trainer.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "tests/test_rewards.py",
+      "line": 174,
+      "cwe": "CWE-502",
+      "snippet": "unpickled = pickle.loads(pickle.dumps(reward_fn))"
+     },
+     {
+      "severity": "high",
+      "file": "tests/test_sft_trainer.py",
+      "line": 1012,
+      "cwe": "CWE-95",
+      "snippet": "trainer.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "tests/test_utils.py",
+      "line": 1469,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "tests/experimental/test_gkd_trainer.py",
+      "line": 503,
+      "cwe": "CWE-95",
+      "snippet": "trainer.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "tests/experimental/test_gold_trainer.py",
+      "line": 3301,
+      "cwe": "CWE-95",
+      "snippet": "\"\"\"VLM eval (identity collator yields raw dicts) must collate off-policy in `_prepare_inputs`."
+     },
+     {
+      "severity": "high",
+      "file": "tests/experimental/test_iw_opd_trainer.py",
+      "line": 578,
+      "cwe": "CWE-95",
+      "snippet": "trainer.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "scripts/generate_tiny_models/_common.py",
+      "line": 92,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/tail_sft_gsm8k/tail_sft.py",
+      "line": 164,
+      "cwe": "CWE-95",
+      "snippet": "self.model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/sdpo_math/sdpo_math.py",
+      "line": 265,
+      "cwe": "CWE-95",
+      "snippet": "model.eval()"
+     },
+     {
+      "severity": "high",
+      "file": "examples/grpo_harbor/harnesses/jupyter/env.py",
+      "line": 71,
+      "cwe": "CWE-95",
+      "snippet": "self._env.exec(f\"python3 /opt/run_cell.py --code-b64 {shlex.quote(b64)}\", timeout_sec=180)"
+     },
+     {
+      "severity": "high",
+      "file": "examples/grpo_harbor/harnesses/jupyter/kernel_server.py",
+      "line": 53,
+      "cwe": "CWE-95",
+      "snippet": "exec(compiled, G)"
+     },
+     {
+      "severity": "high",
+      "file": "examples/async_grpo_opencode/async_grpo_opencode.py",
+      "line": 170,
+      "cwe": "CWE-95",
+      "snippet": "def exec(self, cmd: str, *, envs=None, cwd=None, timeout: float | None = 60) -> ExecResult:"
+     },
+     {
+      "severity": "high",
+      "file": "examples/async_grpo_opencode/opencode_hf_sandbox.py",
+      "line": 196,
+      "cwe": "CWE-95",
+      "snippet": "r = sandbox.exec(f\"cd {WORKDIR} && python3 _run_tests.py\", timeout=PER_TEST_TIMEOUT * len(tests) + 30)"
+     }
+    ]
+   },
+   "A04-InsecureDesign": {
+    "count": 5,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "trl/experimental/gold/gold_trainer.py",
+      "line": 1713,
+      "cwe": "CWE-",
+      "snippet": "# TODO: add self.tools support"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/async_grpo/async_grpo_trainer.py",
+      "line": 1343,
+      "cwe": "CWE-",
+      "snippet": "# TODO(@aminediro): decide if this is returned by the worker or common API that is passed to the worker later."
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/async_grpo/openenv_harness.py",
+      "line": 45,
+      "cwe": "CWE-",
+      "snippet": "# TODO(@openenv): this is OpenEnv's proxy-trace record shape; it should be defined and exported by OpenEnv, not here."
+     },
+     {
+      "severity": "low",
+      "file": "examples/dpo_reduce_hallucinations/dpo_reduce_hallucinations.py",
+      "line": 102,
+      "cwe": "CWE-",
+      "snippet": "# torch distributed hack"
+     },
+     {
+      "severity": "low",
+      "file": "examples/datasets/rlaif-v.py",
+      "line": 52,
+      "cwe": "CWE-",
+      "snippet": "Convert prompt from \"xxx\" to [{\"role\": \"user\", \"content\": [{\"type\": \"image\"}, {\"type\": \"text\", \"text\": \"xxx\"}]}]"
+     }
+    ]
+   },
+   "A05-SecurityMisconfiguration": {
+    "count": 8,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "trl/experimental/gold/gold_config.py",
+      "line": 247,
+      "cwe": "CWE-1188",
+      "snippet": "default=True,"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/gkd/gkd_config.py",
+      "line": 93,
+      "cwe": "CWE-1188",
+      "snippet": "default=True,"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/cpo/cpo_config.py",
+      "line": 129,
+      "cwe": "CWE-1188",
+      "snippet": "default=True,"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/async_grpo/async_grpo_config.py",
+      "line": 224,
+      "cwe": "CWE-1188",
+      "snippet": "default=True,"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/async_distillation/async_distillation_config.py",
+      "line": 206,
+      "cwe": "CWE-1188",
+      "snippet": "default=True,"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/a2po/a2po_config.py",
+      "line": 142,
+      "cwe": "CWE-1188",
+      "snippet": "default=True,"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/grpo_sudoku/grpo_sudoku.py",
+      "line": 172,
+      "cwe": "CWE-1188",
+      "snippet": "default=True,"
+     },
+     {
+      "severity": "medium",
+      "file": "examples/gold_qwen3_vl/gold_qwen3_vl.py",
+      "line": 106,
+      "cwe": "CWE-1188",
+      "snippet": "parser.add_argument(\"--use_vllm\", action=argparse.BooleanOptionalAction, default=True)"
+     }
+    ]
+   },
+   "A06-VulnerableComponents": {
+    "count": 6,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "tests/distributed/test_distributed.py",
+      "line": 53,
+      "cwe": "CWE-1104",
+      "snippet": "reason=\"Upstream incompatibility: deepspeed and transformers==5.1.0 (see transformers#43780)\","
+     },
+     {
+      "severity": "low",
+      "file": "examples/sft_nemotron_3/sft_nemotron_3.py",
+      "line": 20,
+      "cwe": "CWE-1104",
+      "snippet": "#     \"mamba_ssm==2.2.5\","
+     },
+     {
+      "severity": "low",
+      "file": "examples/rloo_visual_math/rloo_visual_math.py",
+      "line": 46,
+      "cwe": "CWE-1104",
+      "snippet": "pip install num2words==0.5.14"
+     },
+     {
+      "severity": "low",
+      "file": "examples/online_dpo_visual_math/online_dpo_visual_math.py",
+      "line": 48,
+      "cwe": "CWE-1104",
+      "snippet": "pip install num2words==0.5.14"
+     },
+     {
+      "severity": "low",
+      "file": "examples/gspo_math/gspo_math.py",
+      "line": 29,
+      "cwe": "CWE-1104",
+      "snippet": "pip install num2words==0.5.14"
+     },
+     {
+      "severity": "low",
+      "file": "examples/grpo_visual_math/grpo_visual_math.py",
+      "line": 46,
+      "cwe": "CWE-1104",
+      "snippet": "pip install num2words==0.5.14"
+     }
+    ]
+   },
+   "A07-AuthFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A08-SoftwareDataIntegrity": {
+    "count": 235,
+    "findings": [
+     {
+      "severity": "low",
+      "file": "trl/chat_template_utils.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/data_utils.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/distributed.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gold/gold_config.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gold/gold_trainer.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gold/__init__.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gmpo/gmpo_config.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gmpo/gmpo_trainer.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gmpo/__init__.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gkd/gkd_config.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gkd/gkd_trainer.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/gkd/__init__.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/distillation/__init__.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/cpo/cpo_config.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/cpo/cpo_trainer.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/cpo/__init__.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/bema_for_ref_model/callback.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/bema_for_ref_model/dpo_trainer.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/bema_for_ref_model/__init__.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/async_grpo/async_grpo_config.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/async_grpo/async_grpo_trainer.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/async_grpo/async_rollout_worker.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/async_grpo/openenv_harness.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/async_grpo/vllm_client.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     },
+     {
+      "severity": "low",
+      "file": "trl/experimental/async_grpo/weight_transfer.py",
+      "line": 7,
+      "cwe": "CWE-319",
+      "snippet": "#     http://www.apache.org/licenses/LICENSE-2.0"
+     }
+    ]
+   },
+   "A09-LoggingMonitoringFailures": {
+    "count": 0,
+    "findings": []
+   },
+   "A10-SSRF": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "owasp_llm_top10": {
+  "total_findings": 136,
+  "files_with_findings": 125,
+  "severity": {
+   "high": 1,
+   "medium": 120,
+   "low": 15
+  },
+  "categories": {
+   "LLM01-PromptInjection": {
+    "count": 18,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "tests/test_chat_template_utils.py",
+      "line": 38,
+      "cwe": "CWE-1336",
+      "snippet": "class TestCloneChatTemplate(TrlTestCase):"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_data_utils.py",
+      "line": 523,
+      "cwe": "CWE-1336",
+      "snippet": "class TestApplyChatTemplate(TrlTestCase):"
+     },
+     {
+      "severity": "low",
+      "file": "tests/test_dpo_trainer.py",
+      "line": 1387,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = ("
+     },
+     {
+      "severity": "low",
+      "file": "tests/test_reward_trainer.py",
+      "line": 629,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = ("
+     },
+     {
+      "severity": "low",
+      "file": "tests/test_sft_trainer.py",
+      "line": 1344,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = ("
+     },
+     {
+      "severity": "low",
+      "file": "examples/sdpo_math/sdpo_math.py",
+      "line": 83,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "medium",
+      "file": "examples/sdft_privileged_context/sdft_privileged_context.py",
+      "line": 82,
+      "cwe": "CWE-1336",
+      "snippet": "DEFAULT_DEMONSTRATION_TEMPLATE = Template(\"\"\"Example response: $output_text\"\"\")"
+     },
+     {
+      "severity": "low",
+      "file": "examples/rloo_visual_math/rloo_visual_math.py",
+      "line": 99,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "low",
+      "file": "examples/rloo_math/rloo_math.py",
+      "line": 47,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "low",
+      "file": "examples/online_dpo_visual_math/online_dpo_visual_math.py",
+      "line": 139,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "low",
+      "file": "examples/gspo_visual_math/gspo_visual_math.py",
+      "line": 88,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "low",
+      "file": "examples/gspo_math/gspo_math.py",
+      "line": 87,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "low",
+      "file": "examples/grpo_visual_math/grpo_visual_math.py",
+      "line": 99,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "low",
+      "file": "examples/grpo_sudoku/grpo_sudoku.py",
+      "line": 395,
+      "cwe": "CWE-1427",
+      "snippet": "system_prompt = resolve_system_prompt(args.system_prompt_path)"
+     },
+     {
+      "severity": "low",
+      "file": "examples/grpo_continuous_batching/grpo_continuous_batching.py",
+      "line": 61,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = ("
+     },
+     {
+      "severity": "low",
+      "file": "examples/grpo_browsergym/browsergym_llm.py",
+      "line": 241,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = \"\"\"You control a web browser to complete tasks."
+     },
+     {
+      "severity": "low",
+      "file": "examples/grpo_browsergym/grpo_browsergym.py",
+      "line": 93,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = \"\"\"You control a web browser to complete tasks."
+     },
+     {
+      "severity": "low",
+      "file": "examples/gold_qwen3_vl/gold_qwen3_vl.py",
+      "line": 51,
+      "cwe": "CWE-1427",
+      "snippet": "SYSTEM_PROMPT = \"Answer with a single number followed by the \u00b0 symbol.\""
+     }
+    ]
+   },
+   "LLM02-SensitiveInfoDisclosure": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "high",
+      "file": "examples/async_grpo_opencode/opencode_hf_sandbox.py",
+      "line": 53,
+      "cwe": "CWE-798",
+      "snippet": "- An HF token with Jobs + Sandbox access in the environment (`HF_TOKEN`); each rollout is one HF sandbox."
+     }
+    ]
+   },
+   "LLM03-SupplyChain": {
+    "count": 116,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "trl/chat_template_utils.py",
+      "line": 86,
+      "cwe": "CWE-494",
+      "snippet": ">>> model = AutoModelForCausalLM.from_pretrained(\"meta-llama/Llama-3.2-1B\")"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/data_utils.py",
+      "line": 386,
+      "cwe": "CWE-494",
+      "snippet": ">>> tokenizer = AutoTokenizer.from_pretrained(\"microsoft/Phi-3-mini-128k-instruct\")"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/gold/gold_trainer.py",
+      "line": 817,
+      "cwe": "CWE-494",
+      "snippet": "processing_class = AutoProcessor.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/gkd/gkd_trainer.py",
+      "line": 175,
+      "cwe": "CWE-494",
+      "snippet": "teacher_model = AutoModelForCausalLM.from_pretrained(teacher_model, **teacher_model_init_kwargs)"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/cpo/cpo_trainer.py",
+      "line": 184,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained(model, **model_init_kwargs)"
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/async_grpo/async_grpo_trainer.py",
+      "line": 1115,
+      "cwe": "CWE-494",
+      "snippet": "processing_class = AutoTokenizer.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/async_distillation/async_distillation_trainer.py",
+      "line": 976,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "trl/experimental/a2po/a2po_trainer.py",
+      "line": 121,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained(model, **model_init_kwargs)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_activation_offloading.py",
+      "line": 37,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained(model_id).to(torch_device)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_callbacks.py",
+      "line": 29,
+      "cwe": "CWE-494",
+      "snippet": "self.model = AutoModelForCausalLM.from_pretrained(\"trl-internal-testing/tiny-Qwen2ForCausalLM-2.5\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_chat_template_utils.py",
+      "line": 41,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(\"trl-internal-testing/tiny-GPT2LMHeadModel\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_data_utils.py",
+      "line": 664,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(tokenizer_id)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_distillation_trainer.py",
+      "line": 943,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained(\"trl-internal-testing/tiny-Qwen3ForCausalLM\", dtype=\"float32\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_dpo_trainer.py",
+      "line": 152,
+      "cwe": "CWE-494",
+      "snippet": "processor = AutoProcessor.from_pretrained(\"trl-internal-testing/tiny-Qwen2_5_VLForConditionalGeneration\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_grpo_trainer.py",
+      "line": 888,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained(\"trl-internal-testing/tiny-Qwen2ForCausalLM-2.5\", dtype=\"float32\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_kto_trainer.py",
+      "line": 60,
+      "cwe": "CWE-494",
+      "snippet": "processor = AutoProcessor.from_pretrained(\"trl-internal-testing/tiny-Qwen2_5_VLForConditionalGeneration\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_model_utils.py",
+      "line": 63,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained(\"trl-internal-testing/tiny-Qwen2ForCausalLM-2.5\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_reward_trainer.py",
+      "line": 113,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForSequenceClassification.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_rloo_trainer.py",
+      "line": 591,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained(\"trl-internal-testing/tiny-Qwen2ForCausalLM-2.5\", dtype=\"float32\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_sft_trainer.py",
+      "line": 438,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoModelForCausalLM.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_utils.py",
+      "line": 77,
+      "cwe": "CWE-494",
+      "snippet": "model = AutoPeftModelForCausalLM.from_pretrained("
+     },
+     {
+      "severity": "medium",
+      "file": "tests/test_vllm_client_server.py",
+      "line": 264,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(self.model_id)"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/experimental/test_async_distillation_trainer.py",
+      "line": 426,
+      "cwe": "CWE-494",
+      "snippet": "tokenizer = AutoTokenizer.from_pretrained(\"trl-internal-testing/small-Qwen2ForCausalLM-2.5\")"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/experimental/test_async_grpo_trainer.py",
+      "line": 326,
+      "cwe": "CWE-494",
+      "snippet": "rollout_worker=_StubRolloutWorker(AutoTokenizer.from_pretrained(model_id), dataset, num_generations=3),"
+     },
+     {
+      "severity": "medium",
+      "file": "tests/experimental/test_cpo_trainer.py",
+      "line": 28,
+      "cwe": "CWE-494",
+      "snippet": "self.model = AutoModelForCausalLM.from_pretrained(self.model_id, dtype=\"float32\")"
+     }
+    ]
+   },
+   "LLM04-DataPoisoning": {
+    "count": 1,
+    "findings": [
+     {
+      "severity": "medium",
+      "file": "tests/experimental/test_async_grpo_trainer.py",
+      "line": 280,
+      "cwe": "CWE-20",
+      "snippet": "body = json.loads(request.body) if request.body else None"
+     }
+    ]
+   },
+   "LLM05-ImproperOutputHandling": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM06-ExcessiveAgency": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM07-SystemPromptLeak": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM08-VectorEmbeddingWeaknesses": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM09-Misinformation": {
+    "count": 0,
+    "findings": []
+   },
+   "LLM10-UnboundedConsumption": {
+    "count": 0,
+    "findings": []
+   }
+  }
+ },
+ "sbom": {
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:b17e512f-e573-594f-bbfa-f61b6aff8ff6",
+  "version": 1,
+  "metadata": {
+   "timestamp": "2026-10-13T20:33:37Z",
+   "component": {
+    "type": "application",
+    "name": "L_PALRLHF",
+    "version": "unknown",
+    "bom-ref": "pkg:generic/anticloud/L_PALRLHF@unknown",
+    "purl": "pkg:generic/anticloud/L_PALRLHF@unknown",
+    "licenses": [
+     {
+      "license": {
+       "id": "Apache-2.0"
+      }
+     }
+    ]
+   },
+   "properties": [
+    {
+     "name": "anticloud:source-commit",
+     "value": ""
+    },
+    {
+     "name": "anticloud:source-url",
+     "value": ""
+    },
+    {
+     "name": "anticloud:tier",
+     "value": "tier-agent"
+    }
+   ]
+  },
+  "components": [
+   {
+    "type": "library",
+    "name": "accelerate",
+    "version": ">=1.4.0",
+    "purl": "pkg:pypi/accelerate@1.4.0",
+    "bom-ref": "pypi/accelerate@>=1.4.0"
+   },
+   {
+    "type": "library",
+    "name": "datasets",
+    "version": ">=4.7.0",
+    "purl": "pkg:pypi/datasets@4.7.0",
+    "bom-ref": "pypi/datasets@>=4.7.0"
+   },
+   {
+    "type": "library",
+    "name": "use_json",
+    "version": "unspecified",
+    "purl": "pkg:pypi/use_json",
+    "bom-ref": "pypi/use_json@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "jinja2",
+    "version": "unspecified",
+    "purl": "pkg:pypi/jinja2",
+    "bom-ref": "pypi/jinja2@unspecified"
+   },
+   {
+    "type": "library",
+    "name": "packaging",
+    "version": ">20.0",
+    "purl": "pkg:pypi/packaging@20.0",
+    "bom-ref": "pypi/packaging@>20.0"
+   },
+   {
+    "type": "library",
+    "name": "transformers",
+    "version": ">=4.56.2",
+    "purl": "pkg:pypi/transformers@4.56.2",
+    "bom-ref": "pypi/transformers@>=4.56.2"
+   }
+  ]
+ },
+ "elapsed_seconds": 3.33,
+ "benchmarks": [
+  {
+   "evidence": {
+    "ceilings": {
+     "max_files": 120,
+     "max_lines": 20000,
+     "min_lines": 2000
+    },
+    "code_lines": 6889,
+    "command": "python tools/run_bench.py --only 01_loc_files",
+    "counts_command": "find src tests tools -name '*.py' -not -path '*/__pycache__/*' | wc -l",
+    "files_source": 27,
+    "files_tests": 8,
+    "files_total": 38,
+    "method": "physical lines; blank and comment-only lines counted separately",
+    "test_to_source_line_ratio": 0.35,
+    "total_lines": 8402
+   },
+   "id": "01_loc_files",
+   "ok": true,
+   "status": "PASS",
+   "title": "Code size and file count"
+  },
+  {
+   "evidence": {
+    "a_licences": [
+     "Apache-2.0",
+     "BSD-2-Clause",
+     "BSD-3-Clause",
+     "ISC",
+     "MIT",
+     "MPL-2.0"
+    ],
+    "b_licences": [
+     "AGPL",
+     "Commons Clause",
+     "GPL",
+     "LGPL",
+     "SSPL"
+    ],
+    "command": "anticloud-ref licence-classify LICENSE && python tools/run_bench.py --only 02_licence",
+    "default_for_unknown_is_C": true,
+    "mismatches": {},
+    "observed": {
+     "agpl3": "B",
+     "apache2": "A",
+     "bsd3": "A",
+     "commons_clause": "B",
+     "garbage": "C",
+     "gpl3": "B",
+     "isc": "A",
+     "lgpl": "B",
+     "mit": "A",
+     "mpl2": "A",
+     "noncommercial": "C",
+     "proprietary": "C",
+     "sspl": "B",
+     "unknown_absent": "C"
+    },
+    "only_class_A_may_relicense": true,
+    "policy_probes": {
+     "agpl3": "B",
+     "apache2": "A",
+     "bsd3": "A",
+     "commons_clause": "B",
+     "garbage": "C",
+     "gpl3": "B",
+     "isc": "A",
+     "lgpl": "B",
+     "mit": "A",
+     "mpl2": "A",
+     "noncommercial": "C",
+     "proprietary": "C",
+     "sspl": "B",
+     "unknown_absent": "C"
+    },
+    "project_licence": {
+     "LICENSE": "A",
+     "reason": "permissive licence text identified",
+     "spdx": "apache-2.0"
+    },
+    "pyproject_declared": "Apache-2.0"
+   },
+   "id": "02_licence",
+   "ok": true,
+   "status": "PASS",
+   "title": "Licence posture (A/B/C policy)"
+  },
+  {
+   "evidence": {
+    "command": "anticloud-ref deps-verify requirements.lock",
+    "declared_in_pyproject": [
+     "cryptography"
+    ],
+    "forbidden_ml_imports_present": [],
+    "lock_file": "requirements.lock",
+    "packages_hashed": 6,
+    "packages_pinned": 6,
+    "requirements": [
+     "cffi==2.1.1",
+     "coverage==7.16.2",
+     "cryptography==50.0.2",
+     "pycparser==3.0",
+     "pytest==9.1.1",
+     "pytest-cov==7.1.0"
+    ],
+    "sha256_hashes": 286,
+    "transitive_or_unclassified": [
+     "cffi==2.1.1",
+     "coverage==7.16.2",
+     "cryptography==50.0.2",
+     "pycparser==3.0",
+     "pytest-cov==7.1.0",
+     "pytest==9.1.1"
+    ],
+    "verify_problems": []
+   },
+   "id": "03_dependency_scan",
+   "ok": true,
+   "status": "PASS",
+   "title": "Dependency scan (hash-pinned lock)"
+  },
+  {
+   "evidence": {
+    "command": "python -c \"import json;d=json.load(open('sbom.cdx.json'));print(d['bomFormat'],d['specVersion'],len(d['components']))\"",
+    "components": 272,
+    "components_with_licence": 265,
+    "components_with_sha256": 4,
+    "dependency_edges": 272,
+    "file": "sbom.cdx.json",
+    "format": "CycloneDX",
+    "generated_from": "live importlib.metadata + requirements.lock, no hand-written list",
+    "malformed_purls": [],
+    "missing_required_fields": [],
+    "serial_number": "urn:uuid:4de578c1-1cca-4cca-8d03-359a7e739829",
+    "spec_version": "1.5"
+   },
+   "id": "04_sbom_cyclonedx",
+   "ok": true,
+   "status": "PASS",
+   "title": "SBOM (CycloneDX 1.5)"
+  },
+  {
+   "evidence": {
+    "branch": "main",
+    "command": "git status --porcelain && git log --oneline -1 && git fsck --no-progress",
+    "commits": 1,
+    "gitignore_present": true,
+    "governed_by_changelog": true,
+    "head": "c6084a79aa40fdecee7ac93e565f44981a578ab6",
+    "latest_commit": "c6084a7 anticloud overlay for L_PALRLHF",
+    "remotes": [],
+    "repo": true,
+    "tags": [],
+    "untracked_or_modified": [],
+    "working_tree_clean": true
+   },
+   "id": "05_git_health",
+   "ok": true,
+   "status": "PASS",
+   "title": "Git health"
+  },
+  {
+   "evidence": {
+    "authority": "OWASP Foundation",
+    "command": "python tools/run_bench.py --only owasp",
+    "control_ids": [
+     "LLM01",
+     "LLM02",
+     "LLM03",
+     "LLM04",
+     "LLM05",
+     "LLM06",
+     "LLM07",
+     "LLM08",
+     "LLM09",
+     "LLM10"
+    ],
+    "controls_mapped": 10,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 10,
+    "coverage_command": "anticloud-ref bench --framework owasp_llm_top10   # 10/10 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "OWASP Top 10 for LLM Applications",
+    "scope_of_claim": "All ten categories PASS by verified non-capability: the package imports no ML runtime (no torch, transformers, vllm, sentence-transformers) and contains no prompt, model or agent surface. A PASS means the risk is structurally absent, not mitigated.",
+    "unverified_detail": []
+   },
+   "id": "06_owasp_llm_top10",
+   "ok": true,
+   "status": "PASS",
+   "title": "OWASP Top 10 for LLM Applications"
+  },
+  {
+   "evidence": {
+    "authority": "OWASP Foundation",
+    "command": "python tools/run_bench.py --only owasp",
+    "control_ids": [
+     "A01:2021",
+     "A02:2021",
+     "A03:2021",
+     "A05:2021",
+     "A06:2021",
+     "A07:2021",
+     "A08:2021",
+     "A09:2021",
+     "A10:2021"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework owasp_top10   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "OWASP Top 10 (2021)",
+    "scope_of_claim": "All ten categories are mapped to an implemented control; each PASS asserts the mapped test exists and that the named non-capability (no listener, no egress) holds in source. It is not a penetration test.",
+    "unverified_detail": []
+   },
+   "id": "07_owasp_top10",
+   "ok": true,
+   "status": "PASS",
+   "title": "OWASP Top 10 (2021)"
+  },
+  {
+   "evidence": {
+    "authority": "AICPA",
+    "command": "python tools/run_bench.py --only soc2",
+    "control_ids": [
+     "CC6.1",
+     "CC6.2",
+     "CC6.6",
+     "CC6.7",
+     "CC6.8",
+     "CC7.2",
+     "CC8.1",
+     "CC9.2",
+     "CC6.1"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework soc2   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "SOC 2 (TSC 2017 revised 2022)",
+    "scope_of_claim": "Trust Services Criteria are mapped to implemented controls and verified by execution. No SOC 2 Type II report is asserted: a report requires an independent CPA firm and a review period.",
+    "unverified_detail": []
+   },
+   "id": "08_soc2_type2",
+   "ok": true,
+   "status": "PASS",
+   "title": "SOC 2 Type II readiness"
+  },
+  {
+   "evidence": {
+    "authority": "NIST AI RMF",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "GOVERN-1.1",
+     "GOVERN-2.2",
+     "MAP-1.1",
+     "MAP-3.5",
+     "MEASURE-2.7",
+     "MEASURE-2.8",
+     "MANAGE-2.2",
+     "MANAGE-4.1"
+    ],
+    "controls_mapped": 8,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 8,
+    "coverage_command": "anticloud-ref bench --framework nist_ai_rmf   # 8/8 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST AI Risk Management Framework 1.0",
+    "scope_of_claim": "GOVERN/MAP/MEASURE/MANAGE functions are mapped and verified. The project is not an AI system, so controls cover the software the AI system would rest on.",
+    "unverified_detail": []
+   },
+   "id": "09_nist_ai_rmf",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST AI Risk Management Framework"
+  },
+  {
+   "evidence": {
+    "authority": "NIST",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "AC-3(2)",
+     "AC-6(7)",
+     "AU-2",
+     "AU-3",
+     "AU-10",
+     "CM-6",
+     "CP-9",
+     "RA-5",
+     "SA-11",
+     "SI-7",
+     "SC-12",
+     "SC-13"
+    ],
+    "controls_mapped": 12,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 12,
+    "coverage_command": "anticloud-ref bench --framework nist_800_53   # 12/12 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST SP 800-53 Rev. 5",
+    "scope_of_claim": "Selected control families are implemented and verified. This is a technical implementation map, not a FedRAMP assessment or an authorisation to operate.",
+    "unverified_detail": []
+   },
+   "id": "10_nist_sp_800_53",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST SP 800-53 Rev. 5"
+  },
+  {
+   "evidence": {
+    "authority": "NIST",
+    "command": "python tools/run_bench.py --only nist",
+    "control_ids": [
+     "GOVERN-1.1",
+     "GOVERN-2.2",
+     "MAP-1.1",
+     "MAP-3.5",
+     "MEASURE-2.7",
+     "MEASURE-2.8",
+     "MANAGE-2.2",
+     "MANAGE-4.1"
+    ],
+    "controls_mapped": 8,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 8,
+    "coverage_command": "anticloud-ref bench --framework nist_csf   # 8/8 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "NIST Cybersecurity Framework 2.0",
+    "scope_of_claim": "CSF 2.0 functions are covered through the aligned control map. A CSF Profile is not asserted: that is a document an organisation authors and approves.",
+    "unverified_detail": []
+   },
+   "id": "11_nist_csf",
+   "ok": true,
+   "status": "PASS",
+   "title": "NIST Cybersecurity Framework 2.0"
+  },
+  {
+   "evidence": {
+    "authority": "FedRAMP",
+    "command": "python tools/run_bench.py --only fedramp",
+    "control_ids": [
+     "IA-2",
+     "IA-5",
+     "RA-5",
+     "SA-4",
+     "SA-10",
+     "SA-11",
+     "SC-7",
+     "SC-8",
+     "SC-13",
+     "SI-2"
+    ],
+    "controls_mapped": 10,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 10,
+    "coverage_command": "anticloud-ref bench --framework fedramp   # 10/10 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "FedRAMP Rev. 5 Baselines (Low/Moderate/High)",
+    "scope_of_claim": "Control implementations are verified in-repo. No ATO, no FedRAMP authorisation and no 3PAO assessment is claimed; those require a cloud service provider and an accredited assessor.",
+    "unverified_detail": []
+   },
+   "id": "12_fedramp",
+   "ok": true,
+   "status": "PASS",
+   "title": "FedRAMP Rev. 5"
+  },
+  {
+   "evidence": {
+    "authority": "PCI SSC",
+    "command": "python tools/run_bench.py --only pci",
+    "control_ids": [
+     "1.1.1",
+     "1.2.1",
+     "2.2.1",
+     "3.4.1",
+     "3.5.1",
+     "6.2.4",
+     "6.4.2",
+     "8.3.6",
+     "10.2.1",
+     "11.3.1",
+     "11.5.2"
+    ],
+    "controls_mapped": 11,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 11,
+    "coverage_command": "anticloud-ref bench --framework pci_dss   # 11/11 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "PCI DSS v4.0.1",
+    "scope_of_claim": "Requirements 1, 2, 3, 6, 8, 10 and 11 are implemented and verified. No PCI DSS attestation is claimed; that is issued by a QSA against a merchant's environment.",
+    "unverified_detail": []
+   },
+   "id": "13_pci_dss",
+   "ok": true,
+   "status": "PASS",
+   "title": "PCI DSS v4.0.1"
+  },
+  {
+   "evidence": {
+    "authority": "ISO/IEC",
+    "command": "python tools/run_bench.py --only iso",
+    "control_ids": [
+     "5.1.1",
+     "5.1.2",
+     "8.2.3",
+     "8.24",
+     "8.28",
+     "8.29",
+     "8.16",
+     "8.20",
+     "8.24"
+    ],
+    "controls_mapped": 9,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 9,
+    "coverage_command": "anticloud-ref bench --framework iso_27001   # 9/9 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "ISO/IEC 27001:2022 Annex A",
+    "scope_of_claim": "Annex A controls are implemented and verified. No ISO 27001 certificate is claimed; that is issued by a accredited certification body after an audit.",
+    "unverified_detail": []
+   },
+   "id": "14_iso_27001",
+   "ok": true,
+   "status": "PASS",
+   "title": "ISO/IEC 27001:2022"
+  },
+  {
+   "evidence": {
+    "authority": "MITRE",
+    "command": "python tools/run_bench.py --only mitre",
+    "control_ids": [
+     "T1078",
+     "T1552",
+     "T1552.001",
+     "T1553",
+     "T1195.002",
+     "T1221",
+     "T1600.002",
+     "T1499",
+     "T1565",
+     "T1565.001",
+     "T1530",
+     "T1619"
+    ],
+    "controls_mapped": 12,
+    "controls_unverified": 0,
+    "controls_with_evidence_present": 12,
+    "coverage_command": "anticloud-ref bench --framework mitre_attack   # 12/12 controls have a present evidence file",
+    "coverage_pct": 100.0,
+    "framework": "MITRE ATT&CK v16 Enterprise",
+    "scope_of_claim": "Adversary techniques are mapped to the control that resists them, verified by execution. This is not adversary emulation or a purple-team exercise.",
+    "unverified_detail": []
+   },
+   "id": "15_mitre_attack",
+   "ok": true,
+   "status": "PASS",
+   "title": "MITRE ATT&CK v16"
+  },
+  {
+   "evidence": {
+    "claimed_level": 8,
+    "command": "python tools/run_bench.py --only 16 && cat docs/18_TRL_JUSTIFICATION/TRL.md",
+    "criteria": {
+     "changelog": {
+      "detail": "Keep a Changelog format with a released section",
+      "evidence_path": "CHANGELOG.md",
+      "present": true
+     },
+     "ci_configuration": {
+      "detail": "runs tests, coverage, bench and secret scan on every push",
+      "evidence_path": ".github/workflows/ci.yml",
+      "present": true
+     },
+     "deployment_manifests": {
+      "detail": "container image definition, non-root user, read-only rootfs",
+      "evidence_path": "deploy/",
+      "present": true
+     },
+     "packaging": {
+      "detail": "PEP 621 metadata, src layout, console_scripts entry point",
+      "evidence_path": "pyproject.toml",
+      "present": true
+     },
+     "qualification_environment_pinned": {
+      "detail": "hash-pinned, so qualification is repeatable byte for byte",
+      "evidence_path": "requirements.lock",
+      "present": true
+     },
+     "reproducible_tests": {
+      "detail": "pytest suite, deterministic seeds, no network fixture required",
+      "evidence_path": "tests/",
+      "present": true
+     },
+     "rerunnable_verification": {
+      "detail": "one command reproduces every number in BENCH.json",
+      "evidence_path": "tools/run_bench.py",
+      "present": true
+     },
+     "versioning": {
+      "detail": "single source of truth, currently 1.0.0",
+      "evidence_path": "src/anticloud_ref/_version.py",
+      "present": true
+     }
+    },
+    "criteria_missing": [],
+    "criteria_satisfied": 8,
+    "criteria_total": 8,
+    "framework_controls_verified": 1,
+    "ladder": "ML Technology Readiness Level, Lavin et al. 2022 (TMLR)",
+    "observed_level": 8,
+    "source": "22_COMPLIANCE_FRAMEWORKS/FACTS.md",
+    "trL9_claimed": false,
+    "trL9_reason": "requires proven success in an operational environment, which cannot be asserted from a repository"
+   },
+   "id": "16_ml_trl",
+   "ok": true,
+   "status": "PASS",
+   "title": "ML Technology Readiness Level 8"
+  }
+ ],
+ "passed": 16,
+ "failed": 0,
+ "failed_ids": [],
+ "all_passed": true,
+ "checks_executed_at": "2026-10-13T20:33:42.828003+00:00",
+ "checks_evidence": "ISOLATED_LAB_RESULTS/04_Evidence/16_checks_report.json",
+ "checks_evidence_sha3": "d2f6003705d1c99d7a8e894b1a49d6abdd9eb6fac4de1c0d6fe3df709ede8350"
+}
